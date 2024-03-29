@@ -2,32 +2,11 @@
   "name": "Basic Node.js",
   "build": { "dockerfile": "Dockerfile" },
   "remoteUser": "node",
-  // "containerEnv": {
-  //   "DISPLAY": "docker.for.mac.host.internal:0"
-  // },
-  // "containerEnv": {
-  //     "DISPLAY": "unix:0"
-  // },
-  // "mounts": [
-  //     "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
-  //   ],
-  // "runArgs": ["--privileged"]
-  // "extensions": [
-  //     "ms-vscode.cpptools",
-  //     "twxs.cmake",
-  //     "eamodio.gitlens",
-  //     "ms-vscode.cmake-tools"
-  // ],
-  // "containerEnv": {
-  //     "DISPLAY": "unix:0"
-  // },
-  
-  // "mounts": [
-  //     "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
-  //   ],
-  // "runArgs": ["--privileged"]
-  "remoteEnv": {
-    "DISPLAY": ":99",
-    "DBUS_SESSION_BUS_ADDRESS": "/dev/null"
+  "containerEnv": {
+    "DISPLAY": "unix:0"
   }
+  ,"settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  }
+  ,"extensions": ["ms-python.python"]
 }
