@@ -16,7 +16,7 @@ RUN apt-get update && \
     libnss3 \
     libasound2 \
     libatk-adaptor \
-    libgtk-3-0
+    libgtk-3-0 rpm dpkg fakeroot
 
 ENV DBUS_SESSION_BUS_ADDRESS="autolaunch:" \
 	VNC_RESOLUTION="1440x768x16" \
