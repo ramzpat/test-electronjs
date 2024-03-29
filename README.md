@@ -4,6 +4,8 @@
 - [ ] Check D3 for visualization 
 - [ ] Check how to run CPP library 
 https://github.com/akab/electron-cpp
+https://stackoverflow.com/questions/43386536/is-it-possible-to-use-c-as-back-end-for-electron-js?noredirect=1&lq=1
+- [ ] python https://medium.com/@abulka/electron-python-4e8c807bfa5e
 
 
 ## Note: for .devcontainer

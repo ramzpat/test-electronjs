@@ -3,10 +3,11 @@
   "build": { "dockerfile": "Dockerfile" },
   "remoteUser": "node",
   "containerEnv": {
-    "DISPLAY": "unix:0"
+    "DISPLAY": "unix:0",
+    "DBUS_SESSION_BUS_ADDRESS":"autolaunch:" 
   }
-  ,"settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  }
-  ,"extensions": ["ms-python.python"]
+  // ,"settings": {
+  //   "terminal.integrated.shell.linux": "/bin/bash"
+  // }
+  // ,"extensions": ["ms-python.python"]
 }
