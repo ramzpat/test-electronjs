@@ -5,14 +5,52 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>A new windows</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
   </head>
-  <body>
-    <h1>Test windows2</h1>
-    Resource: <span id="test-resourcePath"></span><br>
-    Path: <span id="test-path"></span><br>
-    OUTPUT: <span id="test-output"></span><br>
-    Title: <input id="title"/>
-    <button id="btn" type="button">Set</button>
+  <body class="bg-light">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col h1 text-center">Test Window</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="test-resourcePath">Resource</label>
+            <span type="text" class="form-control" id="test-resourcePath" placeholder="Resource">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="test-path">Path</label>
+            <span type="text" class="form-control" id="test-path" placeholder="Path">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="test-output">OUTPUT</label>
+            <span type="text" class="form-control" id="test-output" placeholder="OUTPUT">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="title" placeholder="Title">
+              <button id="btn" class="btn btn-primary">Set</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom mb-10">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
     <script src="./test_renderer.js"></script>
   </body>
 </html>

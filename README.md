@@ -21,6 +21,7 @@ https://github.com/anvaka/VivaGraphJS
 
 ## D3
 D3.js: D3.js is a powerful library for creating data visualizations with a lot of flexibility. It has a steep learning curve but allows for highly customized visualizations.
+<!-- https://observablehq.com/@d3/mobile-patent-suits?intent=fork -->
 
 ```
 // Include D3.js in your HTML file
@@ -62,6 +63,7 @@ sigma.js - MIT: Can be used commercially. Conditions include the preservation of
 - `pip install pyinstaller`
 - `pyinstaller --onefile your_script.py`
 - https://realpython.com/pyinstaller-python/
+- https://www.ahmedbouchefra.com/connect-python-3-electron-nodejs-build-desktop-apps/
 
 # Background Process
 https://medium.com/swlh/how-to-run-background-worker-processes-in-an-electron-app-e0dc310a93cc
