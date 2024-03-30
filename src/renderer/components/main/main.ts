@@ -1,9 +1,12 @@
-import { BrowserWindow } from "electron";
-import path from "path"; // Load the path module to handle the file paths
+import { app, BrowserWindow } from "electron";
+import path from "node:path"; // Load the path module to handle the file paths
 let mainWindow: BrowserWindow | null = null;
 
 // Get the path to the public folder
-const publicPath = path.resolve('./public');
+
+// Check if process.resourcesPath exist 
+const rootPath:string = app.getAppPath();
+const publicPath = path.join(rootPath, 'public');
 const main_html_path = path.join(publicPath, 'main.html');
 
 //  Create the main window

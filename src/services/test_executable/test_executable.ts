@@ -1,8 +1,9 @@
 import process from 'process';  
+import { app } from 'electron'; // Load the app module from Electron
 import { spawn } from 'child_process'; // Load the spawn function from the child_process module
 import path from 'path'; // Load the path module to handle the file paths
 
-const executable_path = path.resolve('./public/executables');
+const executable_path = path.join(app.getAppPath(), 'public', 'executables');
 
 // Test the executable by spawning a child process that runs the 'echo' command
 const test_executable = (): void => {
