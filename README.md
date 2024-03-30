@@ -55,3 +55,10 @@ vis.js - Apache-2.0: Can be used commercially. Conditions include the preservati
 cytoscape.js - LGPL-3.0: Can be used commercially, but any modifications to the library itself must be open-sourced under the same license.
 
 sigma.js - MIT: Can be used commercially. Conditions include the preservation of the copyright notice and disclaimer.
+
+
+# Python Executable 
+
+- `pip install pyinstaller`
+- `pyinstaller --onefile your_script.py`
+- https://realpython.com/pyinstaller-python/
