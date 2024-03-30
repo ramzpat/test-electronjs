@@ -32,15 +32,35 @@ const createWindow = () => {
 
   win.loadFile('index.html');
 
-  const new_win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  });
+  // const new_win = new BrowserWindow({
+  //   width: 800,
+  //   height: 600,
+  //   webPreferences: {
+  //     preload: path.join(__dirname, 'preload.js')
+  //   }
+  // });
+  // new_win.loadFile('test_windows.html');
 
-  new_win.loadFile('test_windows.html');
+  // Show JSon file in new window
+  // const json_win = new BrowserWindow({
+  //   width: 800,
+  //   height: 600,
+  //   webPreferences: {
+  //     preload: path.join(__dirname, 'preload.js')
+  //   }
+  // });
+  // json_win.loadFile('test.json');
+
+  // // Read JSON file in as a new object
+  // const fs = require('fs');
+  // const json = fs.readFileSync('test.json');
+  // console.log(JSON.parse(json));
+
+  // Read YAML file 'test.yaml' in as a new object
+  const yaml = require('js-yaml');
+  const fs = require('fs');
+  const yaml_file = fs.readFileSync('test.yaml', 'utf8');
+  console.log(yaml.load(yaml_file));
 }
 
 app.whenReady().then(() => {

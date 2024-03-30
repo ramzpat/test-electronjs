@@ -20,7 +20,8 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
     "@electron-forge/plugin-fuses": "^7.3.1",
     "child_process": "^1.0.2",
-    "electron": "^29.1.6"
+    "electron": "^29.1.6",
+    "js-yaml": "^4.1.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"

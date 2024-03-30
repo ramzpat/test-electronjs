@@ -1,0 +1,10 @@
+# This is a sample YAML file
+
+name: John Doe
+age: 30
+email: johndoe@example.com
+addresses:
+  - city: New York
+    state: NY
+  - city: San Francisco
+    state: CA
