@@ -5,10 +5,10 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && electron-forge start",
+    "build": "npx tsc",
+    "start": "npm run build && electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
-    "compile": "npx tsc"
+    "make": "npm run build && electron-forge make"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "js-yaml": "^4.1.0"
   }
 }
