@@ -57,10 +57,12 @@ const createWindow = () => {
   // console.log(JSON.parse(json));
 
   // Read YAML file 'test.yaml' in as a new object
-  const yaml = require('js-yaml');
-  const fs = require('fs');
-  const yaml_file = fs.readFileSync('test.yaml', 'utf8');
-  console.log(yaml.load(yaml_file));
+  // const yaml = require('js-yaml');
+  // const fs = require('fs');
+  // const yaml_file = fs.readFileSync('test.yaml', 'utf8');
+  // const yaml_obj = yaml.load(yaml_file);
+  // addresses = yaml_obj.addresses;
+  // console.log(addresses);
 }
 
 app.whenReady().then(() => {
