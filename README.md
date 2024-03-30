@@ -62,3 +62,6 @@ sigma.js - MIT: Can be used commercially. Conditions include the preservation of
 - `pip install pyinstaller`
 - `pyinstaller --onefile your_script.py`
 - https://realpython.com/pyinstaller-python/
+
+# Background Process
+https://medium.com/swlh/how-to-run-background-worker-processes-in-an-electron-app-e0dc310a93cc
