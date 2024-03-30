@@ -5,9 +5,9 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 
 // Get the path to the public folder
-const publicPath = path.join(app.getAppPath(), 'public');
-const test_html_path = path.join(publicPath, 'test.html');
-const yaml_path = path.join(publicPath, 'assets', 'test.yaml');
+const publicResourcesPath = path.join(app.isPackaged?process.resourcesPath:app.getAppPath(), 'public');
+const test_html_path = path.join(publicResourcesPath, 'test.html');
+const yaml_path = path.join(publicResourcesPath, 'assets', 'test.yaml');
 
 //  Create a test window
 const create_test_window = ():BrowserWindow => {
@@ -20,7 +20,7 @@ const create_test_window = ():BrowserWindow => {
       preload: path.join(__dirname, 'test_preload.js')  // Load the compiled preload script (JS format)
     },
   });
-  console.log('publicPath:', publicPath);
+  console.log('publicPath:', publicResourcesPath);
 
   // Load the test HTML file
   testWindow.loadFile(test_html_path);
@@ -30,14 +30,17 @@ const create_test_window = ():BrowserWindow => {
     testWindow.destroy();
   });
 
+  // Set the event listener for the 'set-title' event from the renderer process
   ipcMain.on('set-title', (event, title) => {
     console.log('Setting title:', title);
     testWindow.setTitle(title);
+    
+    // Load the YAML file
     const yaml_obj = yaml.load(fs.readFileSync(yaml_path).toString()) as any;
     console.log('YAML:', yaml_obj);
-
+    // Send the YAML object to the renderer process
     testWindow.webContents.send('test-output', 'Name:' + yaml_obj['name']);
-  })
+  });
 
   return testWindow;
 }

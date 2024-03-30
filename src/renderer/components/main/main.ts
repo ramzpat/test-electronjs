@@ -3,11 +3,8 @@ import path from "node:path"; // Load the path module to handle the file paths
 let mainWindow: BrowserWindow | null = null;
 
 // Get the path to the public folder
-
-// Check if process.resourcesPath exist 
-const rootPath:string = app.getAppPath();
-const publicPath = path.join(rootPath, 'public');
-const main_html_path = path.join(publicPath, 'main.html');
+const publicResourcesPath = path.join(app.isPackaged?process.resourcesPath:app.getAppPath(), 'public');
+const main_html_path = path.join(publicResourcesPath, 'main.html');
 
 //  Create the main window
 const create_main_window = () => {

@@ -1,14 +1,16 @@
 import process from 'process';  
 import { app } from 'electron'; // Load the app module from Electron
-import { spawn } from 'child_process'; // Load the spawn function from the child_process module
+import { ChildProcessWithoutNullStreams, spawn } from 'child_process'; // Load the spawn function from the child_process module
 import path from 'path'; // Load the path module to handle the file paths
 
-const executable_path = path.join(app.getAppPath(), 'public', 'executables');
+const publicResourcesPath = path.join(app.isPackaged?process.resourcesPath:app.getAppPath(), 'public');
+const executable_path = path.join(publicResourcesPath, 'executables');
 
 // Test the executable by spawning a child process that runs the 'echo' command
-const test_executable = (): void => {
+const test_executable = ():ChildProcessWithoutNullStreams => {
   // const sub_process = spawn('echo', ['OS:', process.platform, 'ARCH:', process.arch]);
-  const sub_process = spawn('python', [ path.join(executable_path, 'hello.py')]);
+  // const sub_process = spawn('python', [ path.join(executable_path, 'hello.py')]);
+  const sub_process = spawn(path.join(executable_path, 'hello'), []);
 
   // sub_process.stdin.write('Hello from Electron\n');
 
@@ -27,6 +29,7 @@ const test_executable = (): void => {
     console.log(`child process exited with code ${code}`);
     sub_process.kill();
   });
+  return sub_process;
 };
 
 export { test_executable };
