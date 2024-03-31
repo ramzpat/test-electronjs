@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/d3.v7.min.js"></script>
+</head>
+<title>Example: Directed Graph</title>
+<body>
+  <script>
+    var width = 300, height = 300;
+
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    var nodes = [
+      {id: 1, label: "A1"}, 
+      {id: 2, label: "A2"}, 
+      {id: 3, label: "A3"}
+    ];
+
+    var links = [
+      {source: 1, target: 2}, {source: 2, target: 3}
+    ];
+
+    var simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+      .force("charge", d3.forceManyBody())
+      .force("center", d3.forceCenter(width / 2, height / 2));
+
+    var link = svg.append("g")
+      .selectAll("line")
+      .data(links)
+      .enter().append("line")
+      .attr("stroke", "black")
+      .attr("stroke-width", 2)
+      // .join("path")
+      //   .attr("stroke", d => color(d.type))
+      //   .attr("marker-end", d => `url(${new URL(`#arrow-${d.type}`, location)})`);
+
+    
+    var node = svg.append("g")
+      .selectAll("circle")
+      .data(nodes)
+      .enter()
+      .append("g")
+      .append("circle")
+      .attr("r", 20)
+      .attr("fill", "#69b3a2")
+
+    const label = svg.append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .text(d => d.label)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "central")
+        .style("font-size", "12px")
+        .style("fill", "black");
+
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      label
+        .attr("x", d => d.x)
+        .attr("y", d => d.y); // Adjust label position
+    });
+  </script>
+</body>
+</html>

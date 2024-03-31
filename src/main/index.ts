@@ -22,9 +22,13 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 const yaml_path = path.join(RESOURCES_PATH, 'test.yaml');
 
+import { Example } from './examples';
+
 app.on('ready', () => {
   const testWin = new TestApp();
   testWin.init();
+
+  new Example.D3().init();
 
   // Set the event listener for the 'set-title' event from the renderer process
   ipcMain.on('set-title', (event, title) => {
