@@ -36,9 +36,7 @@ app.on('ready', () => {
     testWin.window?.setTitle(title);
     
     // Load the YAML file
-    console.log('YAML Path:', yaml_path);
-    const yaml_obj = yaml.load(fs.readFileSync(yaml_path).toString()) as any;
-    console.log('YAML:', yaml_obj);
+    const yaml_obj = Example.load_yaml(yaml_path);
     // Send the YAML object to the renderer process
     testWin.window?.webContents.send('test-output', 'Name:' + yaml_obj['name']);
   });
