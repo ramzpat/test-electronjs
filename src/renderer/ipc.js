@@ -19,3 +19,13 @@ ipcRenderer.on('test-output', (event, arg) => {
   console.log(arg)
   replaceText('test-output', arg)
 });
+
+// Collect console logs and send them to the main process
+console.log = function() {
+  ipcRenderer.send('console-log', Array.from(arguments));
+}
+
+// Collect console errors and send them to the main process
+console.error = function() {
+  ipcRenderer.send('console-error', Array.from(arguments));
+}

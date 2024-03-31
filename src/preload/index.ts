@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const element = document.getElementById(selector);
     if (element) element.innerText = text;
   };
+  replaceText(`test-output`, "test-output");
   replaceText(`test-resourcePath`, process.resourcesPath);
   replaceText(`test-path`, __dirname);
-  replaceText(`test-output`, "test-output");
 });
