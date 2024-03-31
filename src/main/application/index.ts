@@ -24,8 +24,6 @@ export default class TestApp {
         width: 800,
         height: 600,
         webPreferences: {
-          nodeIntegration: true,
-          contextIsolation: false,
           preload: PRELOAD_PATH
         }
       });

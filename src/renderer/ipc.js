@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+// const { ipcRenderer } = require('electron');
 
 const setButton = document.getElementById('btn')
 const titleInput = document.getElementById('title')
@@ -11,21 +11,37 @@ const replaceText = (selector, text) => {
 
 setButton.addEventListener('click', () => {
   const title = titleInput.value
-  ipcRenderer.send('set-title', title)
+  // ipcRenderer.send('set-title', title)
+  electron.send('set-title', title);
 })
 
 // Replace the text of the element with the id "test-output"
-ipcRenderer.on('test-output', (event, arg) => {
-  console.log(arg)
+electron.receive('test-output', (arg) => {
   replaceText('test-output', arg)
-});
+})
 
 // Collect console logs and send them to the main process
 console.log = function() {
-  ipcRenderer.send('console-log', Array.from(arguments));
+  electron.send('console-log', Array.from(arguments));
 }
 
 // Collect console errors and send them to the main process
 console.error = function() {
-  ipcRenderer.send('console-error', Array.from(arguments));
+  electron.send('console-error', Array.from(arguments));
 }
+
+// Replace the text of the element with the id "test-output"
+// ipcRenderer.on('test-output', (event, arg) => {
+//   console.log(arg)
+//   replaceText('test-output', arg)
+// });
+
+// Collect console logs and send them to the main process
+// console.log = function() {
+//   ipcRenderer.send('console-log', Array.from(arguments));
+// }
+
+// // Collect console errors and send them to the main process
+// console.error = function() {
+//   ipcRenderer.send('console-error', Array.from(arguments));
+// }
